@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "moment": "^2.29.4",
+    "qs": "^6.11.2",
+    "twilio": "^4.14.0",
+    "validate": "^5.2.0",
+    "validate.js": "^0.13.1",
+    "validator": "^13.9.0"
+  }
+}
