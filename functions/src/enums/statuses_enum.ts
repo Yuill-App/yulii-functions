@@ -6,4 +6,5 @@ export enum Statuses {
   Done = "Done",
   Closed = "Closed",
   Declined = "Declined",
+  Rejected = "Rejected",
 }

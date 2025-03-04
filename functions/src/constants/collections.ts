@@ -1,6 +1,7 @@
 export default {
   users: "users",
   invitations: "invitations",
+  events: "events",
   tasks: "tasks",
   clients: "clients",
   notifications: "notifications",
@@ -9,4 +10,6 @@ export default {
   goals: "goals",
   chats: "chats",
   chatMessages: "chatMessages",
+  competition: "competition",
+  competitionDeal: "competitionDeal",
 };

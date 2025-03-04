@@ -20,6 +20,7 @@ import { claimsServices } from "../services/claims_services";
 import { invitationsService } from "./../services/invitations_service";
 import { goalsService } from "./../services/goals_services";
 import { chatMessagesService } from "../services/chat_messages_service";
+import { competitionServices } from "../services/competition_services";
 
 export const firestoreEvents = function (
 	db: FirebaseFirestore.Firestore,
@@ -107,6 +108,7 @@ export const firestoreEvents = function (
         usersService: usersService(db),
         onNotificationCreation,
 		tasksServices: tasksServices(db),
+        competitionServices: competitionServices(db),
         claimsServices: claimsServices(db),
 		invitationsService: invitationsService(db),
 		goalsService: goalsService(db),

@@ -2,10 +2,9 @@ import * as functions from "firebase-functions";
 const Bottleneck = require("bottleneck");
 import collections from "../constants/collections";
 import * as _ from "lodash";
-import { getUserById } from "../utils/user_utils";
+import { getUserById, displayName } from "../utils/user_utils";
 import { NotificationDto } from "../models/notification.dto";
 import { NotificationTypes } from "../enums/notification_types_enum";
-import { displayName } from "./../utils/user_utils";
 import { Statuses } from "../enums/statuses_enum";
 
 export const goalsService = function (adminDb: FirebaseFirestore.Firestore) {

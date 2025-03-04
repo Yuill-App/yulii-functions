@@ -73,6 +73,9 @@ export const claimsServices = function (adminDb: FirebaseFirestore.Firestore) {
 						const newCreditTransactionData = {
 							previous: previous,
 							transactionValue: transactionValue,
+							taskName:goal.get("name"),
+							taskType:"reward",
+							status:goal.get("status"),
 							current: current,
 							transactionType: CreditTransactionTypes.Decrease,
 							ownerId: author.id,

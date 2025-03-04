@@ -1,4 +1,5 @@
 import collections from "../constants/collections";
+import { Statuses } from "../enums/statuses_enum";
 
 export const getUserById = async (
 	userId: string,
@@ -6,6 +7,25 @@ export const getUserById = async (
 ) => {
 	const user = await adminDb.collection(collections.users).doc(userId).get();
 	return user;
+};
+
+export const getDealsData = async (
+	dealsId: string,
+	adminDb: FirebaseFirestore.Firestore
+) => {
+	const dealQuery = await adminDb
+		.collection(collections.users)
+		.where("remoteId", "==", dealsId)
+		.where("status", "==", Statuses.Done)
+		.limit(1)
+		.get();
+
+	if (dealQuery.size > 0) {
+		const deal = await dealQuery.docs[0].ref.get();
+
+		return deal;
+	}
+	return null;
 };
 
 export const getUserByEmail = async (

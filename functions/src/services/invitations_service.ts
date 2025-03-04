@@ -1,11 +1,10 @@
 import * as functions from "firebase-functions";
 import collections from "../constants/collections";
 import * as _ from "lodash";
-import { getUserById, getUserByEmail } from "../utils/user_utils";
+import { getUserById, getUserByEmail, displayName } from "../utils/user_utils";
 import { NotificationDto } from "./../models/notification.dto";
 import { NotificationTypes } from "../enums/notification_types_enum";
 import { Statuses } from "../enums/statuses_enum";
-import { displayName } from "./../utils/user_utils";
 // const moment = require("moment");
 
 export const invitationsService = function (

@@ -5,6 +5,8 @@ export enum NotificationTypes {
   TaskAssigned = "task_assigned",
   GoalCreated = "goal_created",
   GoalClaimed = "goal_claimed",
+  CompetitionCreation = "competition_creation",
+  CompetitionUpdate = "competition_update",
   GoalAssigned = "goal_assigned",
   CashRewardCreated = "cash_reward_created",
   CashRewardClaimed = "cash_reward_claimed",

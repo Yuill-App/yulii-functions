@@ -46,6 +46,7 @@ export interface NotificationData {
 	sender?: string;
 	senderName?: string;
 	receiverName?: string;
+	competitionDeal?: [];
 	itemName?: string;
 	itemId?: string;
 	itemStatus?: Statuses;

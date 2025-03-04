@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "moment": "^2.29.4",
+    "nodemailer": "^6.9.13",
     "qs": "^6.11.2",
     "twilio": "^4.14.0",
     "validate": "^5.2.0",

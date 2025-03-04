@@ -152,13 +152,27 @@ export const tasksServices = function (adminDb: FirebaseFirestore.Firestore) {
 										}
 									).toObject()
 								);
+						}else if (
+							currentItemSnapshot.get("status") === Statuses.Rejected
+							) {
+							await adminDb
+								.collection(collections.notifications)
+								.doc()
+								.create(
+									new NotificationDto(
+										author.get("email"),
+										NotificationTypes.TaskStatusChanged,
+										{
+											itemId: currentItemSnapshot.id,
+											itemName: currentItemSnapshot.get("name"),
+											itemStatus: currentItemSnapshot.get("status"),
+											sender: assignee.id,
+											senderName: displayName(assignee),
+										}
+									).toObject()
+								);
 						}
-						console.log("status", currentItemSnapshot.get("status"));
-						console.log(
-							"condition : ",
-							currentItemSnapshot.get("status") === Statuses.Done
-						);
-
+					
 						if (currentItemSnapshot.get("status") === Statuses.Done) {
 							// task is done, assignees must receive their credits
 							const lastTransaction = await getLastCreditTransaction(
@@ -174,6 +188,9 @@ export const tasksServices = function (adminDb: FirebaseFirestore.Firestore) {
 
 							const newCreditTransactionData = {
 								previous: previous,
+								taskName:currentItemSnapshot.get("name"),
+								taskType:"deal",
+								status:currentItemSnapshot.get("status"),
 								transactionValue: transactionValue,
 								current: current,
 								transactionType: CreditTransactionTypes.Increase,
